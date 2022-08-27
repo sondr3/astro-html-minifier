@@ -1,26 +1,18 @@
-import * as minifyHtml from "@minify-html/node";
-import type { AstroConfig, AstroIntegration } from "astro";
-import { globby } from "globby";
-import fs from "node:fs/promises";
+import minifyHTML from "@minify-html/node";
+import type { AstroIntegration } from "astro";
+import { globbyStream } from "globby";
+import * as fs from "node:fs/promises";
+
+const { minify } = minifyHTML;
 
 export const createMinifierPlugin = (): AstroIntegration => {
-  // @ts-ignore
-  let config: AstroConfig;
-
   return {
     name: "@sondr3/astro-minify",
     hooks: {
-      "astro:config:done": ({ config: cfg }) => {
-        config = cfg;
-      },
       "astro:build:done": async ({ dir }) => {
-        console.log(dir);
-        const pages = globby([dir.pathname, "**/*.html"]);
-
-        for (const page of await pages) {
-          console.log(page);
+        for await (const page of globbyStream(`${dir.pathname}**/*.html`)) {
           const content = await fs.readFile(page);
-          const result = minifyHtml.minify(content, {});
+          const result = minify(content, {});
           await fs.writeFile(page, result);
         }
       },
