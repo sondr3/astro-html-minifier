@@ -46,6 +46,8 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
       "astro:build:done": async ({ dir }) => {
         if (config.html.enabled) await minifyHTML(dir, config.html.config);
         if (config.css.enabled) await minifyCSS(dir, config.css.config);
+
+        process.stdout.write("\n\n");
       },
     },
   };

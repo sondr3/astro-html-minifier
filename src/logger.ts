@@ -6,24 +6,25 @@ const COLORS = {
 } as const;
 
 export class Logger {
-  private static log(msg: string, prefix = "") {
-    // eslint-disable-next-line no-console
-    console.log(`%s@sondr3/sastro-minify:%s ${msg}\n`, prefix, prefix ? COLORS.reset : "");
+  private static format(msg: string, prefix = ""): string {
+    const start = prefix;
+    const end = prefix ? COLORS.reset : "";
+    return `${start}@sondr3/astro-minify:${end} ${msg}`;
   }
 
   static info(msg: string) {
-    this.log(msg);
+    process.stdout.write(this.format(msg));
   }
 
   static success(msg: string) {
-    this.log(msg, COLORS.green);
+    process.stdout.write(this.format(msg, COLORS.green));
   }
 
   static warn(msg: string) {
-    this.log(msg, COLORS.yellow);
+    process.stderr.write(this.format(msg, COLORS.yellow));
   }
 
   static error(msg: string) {
-    this.log(msg, COLORS.red);
+    process.stderr.write(this.format(msg, COLORS.red));
   }
 }
