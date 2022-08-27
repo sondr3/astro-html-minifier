@@ -1,6 +1,7 @@
 {
   "extends": "@sondr3/tsconfig",
   "compilerOptions": {
+    "lib": ["ES2020"],
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
