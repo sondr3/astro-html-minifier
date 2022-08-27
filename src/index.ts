@@ -53,7 +53,7 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
         if (config.css.enabled) await minifyCSS(dir, config.css.config);
         if (config.js.enabled) await minifyJS(dir, config.js.config);
 
-        process.stdout.write("\n\n");
+        Logger.success("Minification finished\n");
       },
     },
   };
