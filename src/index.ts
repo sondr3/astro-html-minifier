@@ -1,34 +1,33 @@
-import minifyHTML from "@minify-html/node";
 import type { AstroIntegration } from "astro";
-import { globbyStream } from "globby";
-import * as fs from "node:fs/promises";
-import { hrtime } from "node:process";
 
-import { Logger } from "./logger.js";
+import { HTMLOptions, mergeOptions, minifyHTML, RequiredHTMLOptions } from "./html.js";
 
-const { minify } = minifyHTML;
+export interface Options {
+  html: boolean | HTMLOptions;
+}
 
-export const createMinifierPlugin = (): AstroIntegration => {
+const defaultOptions: Options = {
+  html: true,
+};
+
+interface ConvertedOptions {
+  html: RequiredHTMLOptions;
+}
+
+export const createMinifierPlugin = (opts: Options = defaultOptions): AstroIntegration => {
+  let config: ConvertedOptions;
+
   return {
     name: "@sondr3/astro-minify",
     hooks: {
+      "astro:config:done": () => {
+        const options = { ...defaultOptions, ...opts };
+        config = {
+          html: mergeOptions(options.html),
+        };
+      },
       "astro:build:done": async ({ dir }) => {
-        try {
-          const start = hrtime.bigint();
-          let minifiedPages = 0;
-          for await (const page of globbyStream(`${dir.pathname}**/*.html`)) {
-            const content = await fs.readFile(page);
-            const result = minify(content, {});
-            await fs.writeFile(page, result);
-            minifiedPages += 1;
-          }
-          const end = hrtime.bigint();
-
-          Logger.success(`minified ${minifiedPages} pages in ${(end - start) / 1000000n}ms`);
-        } catch (error) {
-          const err = error as Error;
-          Logger.error(`Could not write file: ${err.message}`);
-        }
+        await minifyHTML(dir, config.html);
       },
     },
   };
