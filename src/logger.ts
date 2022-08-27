@@ -9,22 +9,22 @@ export class Logger {
   private static format(msg: string, prefix = ""): string {
     const start = prefix;
     const end = prefix ? COLORS.reset : "";
-    return `${start}@sondr3/astro-minify:${end} ${msg}\n`;
+    return `${start}@sondr3/astro-minify:${end} ${msg}`;
   }
 
   static info(msg: string) {
-    process.stdout.write(this.format(msg));
+    console.info(this.format(msg));
   }
 
   static success(msg: string) {
-    process.stdout.write(this.format(msg, COLORS.green));
+    console.log(this.format(msg, COLORS.green));
   }
 
   static warn(msg: string) {
-    process.stderr.write(this.format(msg, COLORS.yellow));
+    console.warn(this.format(msg, COLORS.yellow));
   }
 
   static error(msg: string) {
-    process.stderr.write(this.format(msg, COLORS.red));
+    console.error(this.format(msg, COLORS.red));
   }
 }
