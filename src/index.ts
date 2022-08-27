@@ -2,22 +2,26 @@ import type { AstroIntegration } from "astro";
 
 import { CSSOptions, defaultCSSOptions, minifyCSS } from "./css.js";
 import { defaultHTMLOptions, HTMLOptions, minifyHTML, RequiredHTMLOptions } from "./html.js";
+import { defaultJSOptions, JSOptions, minifyJS } from "./js.js";
 import { Logger } from "./logger.js";
 import { ConfigItem, mergeOptions } from "./utils.js";
 
 export interface Options {
   html: boolean | HTMLOptions;
   css: boolean | CSSOptions;
+  js: boolean | JSOptions;
 }
 
 const defaultOptions: Options = {
   html: true,
   css: true,
+  js: true,
 };
 
 interface ConvertedOptions {
   html: ConfigItem<RequiredHTMLOptions>;
   css: ConfigItem<CSSOptions>;
+  js: ConfigItem<JSOptions>;
 }
 
 export const createMinifierPlugin = (opts: Options = defaultOptions): AstroIntegration => {
@@ -32,6 +36,7 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
         config = {
           html: mergeOptions(options.html, defaultHTMLOptions),
           css: mergeOptions(options.css, defaultCSSOptions),
+          js: mergeOptions(options.js, defaultJSOptions),
         };
 
         // Disable CSS minification if using Tailwind
@@ -46,6 +51,7 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
       "astro:build:done": async ({ dir }) => {
         if (config.html.enabled) await minifyHTML(dir, config.html.config);
         if (config.css.enabled) await minifyCSS(dir, config.css.config);
+        if (config.js.enabled) await minifyJS(dir, config.js.config);
 
         process.stdout.write("\n\n");
       },
