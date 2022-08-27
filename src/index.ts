@@ -1,6 +1,7 @@
 import type { AstroIntegration } from "astro";
 
-import { HTMLOptions, mergeOptions, minifyHTML, RequiredHTMLOptions } from "./html.js";
+import { defaultHTMLOptions, HTMLOptions, minifyHTML, RequiredHTMLOptions } from "./html.js";
+import { mergeOptions } from "./utils.js";
 
 export interface Options {
   html: boolean | HTMLOptions;
@@ -23,7 +24,7 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
       "astro:config:done": () => {
         const options = { ...defaultOptions, ...opts };
         config = {
-          html: mergeOptions(options.html),
+          html: mergeOptions(options.html, defaultHTMLOptions),
         };
       },
       "astro:build:done": async ({ dir }) => {

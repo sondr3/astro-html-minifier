@@ -48,11 +48,6 @@ export const defaultHTMLOptions: RequiredHTMLOptions = {
   removeProcessingInstructions: false,
 };
 
-export const mergeOptions = (opts: boolean | HTMLOptions): RequiredHTMLOptions => {
-  const options = typeof opts === "boolean" ? {} : opts;
-  return { ...defaultHTMLOptions, ...options } as RequiredHTMLOptions;
-};
-
 export const convertUserOptions = (
   options: RequiredHTMLOptions,
 ): Record<string, boolean | undefined> => {
