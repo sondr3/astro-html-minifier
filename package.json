@@ -22,6 +22,11 @@
     "astro-component",
     "performance"
   ],
+  "files": [
+    "dist/**",
+    "CHANGELOG.md",
+    "README.md"
+  ],
   "scripts": {
     "dev": "tsc --watch --incremental",
     "build": "tsc",
