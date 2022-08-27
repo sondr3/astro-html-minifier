@@ -1,6 +1,6 @@
 {
   "name": "@sondr3/astro-html-minifier",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A HTML minifier for Astro",
   "type": "module",
   "main": "./dist/index.js",
