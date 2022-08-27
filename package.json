@@ -24,6 +24,8 @@
   "scripts": {
     "dev": "tsc --watch --incremental",
     "build": "tsc",
+    "lint": "eslint --cache src",
+    "lint:fix": "eslint --cache --fix src",
     "format": "prettier --check src",
     "format:fix": "prettier --write src"
   },
