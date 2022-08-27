@@ -79,7 +79,7 @@ export const minifyHTML = async (dir: URL, options: RequiredHTMLOptions): Promis
     }
     const end = hrtime.bigint();
 
-    Logger.success(`minified ${minifiedPages} pages in ${(end - start) / 1000000n}ms`);
+    Logger.success(`minified ${minifiedPages} HTML files in ${(end - start) / 1000000n}ms`);
   } catch (error) {
     const err = error as Error;
     Logger.error(`Could not write HTML file: ${err.message}`);
