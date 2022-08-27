@@ -1,20 +1,20 @@
 {
-  "name": "@sondr3/astro-minify",
+  "name": "@sondr3/astro-html-minifier",
   "version": "0.1.0",
-  "description": "A minifier for HTML, CSS and JS for Astro",
+  "description": "A HTML minifier for Astro",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/sondr3/astro-minify.git"
+    "url": "git+ssh://git@github.com/sondr3/astro-html-minifier.git"
   },
   "author": "Sondre Nilsen <sondre@eons.io> (https://www.eons.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sondr3/astro-minify/issues"
+    "url": "https://github.com/sondr3/astro-html-minifier/issues"
   },
-  "homepage": "https://github.com/sondr3/astro-minify#readme",
+  "homepage": "https://github.com/sondr3/astro-html-minifier#readme",
   "prettier": "@sondr3/prettier",
   "keywords": [
     "astro",
@@ -31,8 +31,6 @@
   },
   "dependencies": {
     "@minify-html/node": "0.9.2",
-    "@parcel/css": "1.13.0",
-    "esbuild": "0.15.5",
     "globby": "13.1.2"
   },
   "devDependencies": {
