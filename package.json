@@ -19,7 +19,8 @@
   "keywords": [
     "astro",
     "astro-integration",
-    "astro-component"
+    "astro-component",
+    "performance"
   ],
   "scripts": {
     "dev": "tsc --watch --incremental",

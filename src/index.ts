@@ -23,7 +23,7 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
   };
 
   return {
-    name: "@sondr3/astro-minify",
+    name: "@sondr3/astro-html-minifier",
     hooks: {
       "astro:build:done": async ({ dir }) => {
         if (config.html.enabled) await minifyHTML(dir, config.html.config);

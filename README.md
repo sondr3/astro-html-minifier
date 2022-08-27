@@ -25,9 +25,33 @@
 
 # Quickstart
 
-1. Install via your tool of choice: `pnpm add --dev @sondr3/astro-html-minifier`
+Install via your tool of choice:
+
+```sh
+# Using NPM
+npm run astro add @sondr3/astro-html-minifier
+# Using Yarn
+yarn astro add @sondr3/astro-html-minifier
+# Using PNPM
+pnpm astro add @sondr3/astro-html-minifier
+```
+
+Then, restart the dev server by typing `CTRL-C` and then `npm run dev` in the terminal window that was running Astro.
 
 # Usage
+
+First, install the package with your favorite package manager: `pnpm add --dev @sondr3/astro-html-minifier`,
+then configure it in your `astro.config.*` file in the `integrations` property:
+
+```js
+import { defineConfig } from "astro/config";
+import minifyHtml from "@sondr3/astro-html-minifier";
+
+export default defineConfig({
+  // ...
+  integrations: [minifyHtml()],
+});
+```
 
 # License
 
