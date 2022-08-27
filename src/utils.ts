@@ -1,4 +1,10 @@
-export const mergeOptions = <T>(opts: boolean | T, defaults: Required<T>): Required<T> => {
+export interface ConfigItem<T> {
+  enabled: boolean;
+  config: T;
+}
+
+export const mergeOptions = <T, U>(opts: boolean | T, defaults: U): ConfigItem<U> => {
+  const enabled = typeof opts === "boolean" ? opts : true;
   const options = typeof opts === "boolean" ? {} : opts;
-  return { ...defaults, ...options };
+  return { enabled, config: { ...defaults, ...options } };
 };
