@@ -9,7 +9,7 @@ export class Logger {
   private static format(msg: string, prefix = ""): string {
     const start = prefix;
     const end = prefix ? COLORS.reset : "";
-    return `${start}@sondr3/astro-html-minifier:${end} ${msg}`;
+    return `${start}astro-html-minifier:${end} ${msg}`;
   }
 
   static info(msg: string) {
