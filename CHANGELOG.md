@@ -1,3 +1,18 @@
+## v0.3.0
+> 2022-12-27
+
+## Summary
+
+Bump HTML minifier and other dependencies.
+
+### Commits
+- [[`e548841`](https://github.com/sondr3/astro-html-minifier)] Fix release CI step
+- [[`fa91401`](https://github.com/sondr3/astro-html-minifier)] Bump dependencies, fix formatting
+- [[`3b04925`](https://github.com/sondr3/astro-html-minifier)] Release v0.3.0
+- [[`a147ed3`](https://github.com/sondr3/astro-html-minifier)] Bump pnpm/action-setup from 2.2.3 to 2.2.4
+- [[`7abb719`](https://github.com/sondr3/astro-html-minifier)] Bump pnpm/action-setup from 2.2.2 to 2.2.3
+- [[`7487f66`](https://github.com/sondr3/astro-html-minifier)] Add publish step to build pipeline
+
 ## v0.2.0
 
 > 2022-08-27
