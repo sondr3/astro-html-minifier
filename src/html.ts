@@ -1,7 +1,8 @@
-import minifier from "@minify-html/node";
-import { globbyStream } from "globby";
 import * as fs from "node:fs/promises";
 import { hrtime } from "node:process";
+
+import minifier from "@minify-html/node";
+import { globbyStream } from "globby";
 
 import { Logger } from "./logger.js";
 const { minify } = minifier;
