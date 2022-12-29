@@ -2,9 +2,9 @@ import * as fs from "node:fs/promises";
 import { hrtime } from "node:process";
 
 import minifier from "@minify-html/node";
-import { globbyStream } from "globby";
 
 import { Logger } from "./logger.js";
+import { walkDir } from "./utils.js";
 const { minify } = minifier;
 
 export interface HTMLOptions {
@@ -67,12 +67,13 @@ export const convertUserOptions = (
   };
 };
 
-export const minifyHTML = async (dir: URL, options: RequiredHTMLOptions): Promise<void> => {
+export const minifyHTML = async (dir: string, options: RequiredHTMLOptions): Promise<void> => {
   const cfg = convertUserOptions(options);
   try {
     const start = hrtime.bigint();
     let minifiedPages = 0;
-    for await (const page of globbyStream(`${dir.pathname}**/*.html`)) {
+
+    for await (const page of walkDir(dir)) {
       const content = await fs.readFile(page);
       const result = minify(content, cfg);
       await fs.writeFile(page, result);
