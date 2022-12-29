@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+
 import type { AstroIntegration } from "astro";
 
 import { defaultHTMLOptions, HTMLOptions, minifyHTML, RequiredHTMLOptions } from "./html.js";
@@ -26,7 +28,8 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
     name: "astro-html-minifier",
     hooks: {
       "astro:build:done": async ({ dir }) => {
-        if (config.html.enabled) await minifyHTML(dir, config.html.config);
+        const path = fileURLToPath(dir);
+        if (config.html.enabled) await minifyHTML(path, config.html.config);
 
         Logger.success("Minification finished\n");
       },
