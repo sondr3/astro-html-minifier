@@ -1,7 +1,7 @@
 <h1 align="center">astro-html-minifier</h1>
 <p align="center">
     <a href="https://github.com/sondr3/astro-html-minifier/actions"><img alt="GitHub Actions Status" src="https://github.com/sondr3/astro-html-minifier/workflows/pipeline/badge.svg" /></a>
-    <a href="https://www.npmjs.com/package/astro-html-minifier"><img alt="NPM" src="https://badge.fury.io/js/astro-html-minifier.svg" /></a>
+    <a href="https://www.npmjs.com/package/astro-html-minifier"><img src="https://img.shields.io/npm/v/astro-html-minifier" alt="npm version"></a>
 </p>
 
 <p align="center">
