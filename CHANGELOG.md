@@ -1,3 +1,15 @@
+## v0.4.0
+> 2022-12-29
+
+## Summary
+
+Remove `globby` dependency and use standard library functionality. Fix paths on Windows.
+
+### Commits
+- [[`55f723e`](https://github.com/sondr3/astro-html-minifier)] Use fileUrlToPath to fix path on Windows
+- [[`3eab843`](https://github.com/sondr3/astro-html-minifier)] Remove globby dependency, use stdlib
+- [[`ea9c2c5`](https://github.com/sondr3/astro-html-minifier)] Use shields.io over badge.fury.io
+
 ## v0.3.0
 > 2022-12-27
 
