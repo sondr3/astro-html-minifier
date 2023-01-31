@@ -20,6 +20,7 @@
 
 - [Quickstart](#quickstart)
 - [Usage](#usage)
+  - [Configuration](#configuration)
 - [License](#license)
 </details>
 
@@ -50,6 +51,48 @@ import minifyHtml from "astro-html-minifier";
 export default defineConfig({
   // ...
   integrations: [minifyHtml()],
+});
+```
+
+## Configuration
+
+While the default options should serve most users well, you may want to change the options
+yourself. The options are as follows:
+
+```js
+export interface HTMLOptions {
+  /** Do not minify DOCTYPEs. Minified DOCTYPEs may not be spec compliant. */
+  doNotMinifyDoctype?: boolean; // true
+  /** Ensure all unquoted attribute values in the output do not contain any characters prohibited by the WHATWG specification. */
+  ensureSpecCompliantUnquotedAttributeValues?: boolean; // true
+  /** Do not omit closing tags when possible. */
+  keepClosingTags?: boolean; // true
+  /** Do not omit `<html>` and `<head>` opening tags when they don't have attributes. */
+  keepHtmlAndHeadOpeningTags?: boolean; // true
+  /** Keep spaces between attributes when possible to conform to HTML standards. */
+  keepSpacesBetweenAttributes?: boolean; // true
+  /** Keep all comments. */
+  keepComments?: boolean; // false
+  /**
+   * If enabled, content in `<script>` tags with a JS or no [MIME type](https://mimesniff.spec.whatwg.org/#javascript-mime-type) will be minified using [minify-js](https://github.com/wilsonzlin/minify-js).
+   */
+  minifyJs?: boolean; // true
+  /**
+   * If enabled, CSS in `<style>` tags and `style` attributes will be minified.
+   */
+  minifyCss?: boolean; // true
+  /** Remove all bangs. */
+  removeBangs?: boolean; // false
+  /** Remove all processing_instructions. */
+  removeProcessingInstructions?: boolean; // false
+}
+
+import { defineConfig } from "astro/config";
+import minifyHtml from "astro-html-minifier";
+
+export default defineConfig({
+  // ...
+  integrations: [minifyHtml({ keepComments: true, minifyJs: false })],
 });
 ```
 
