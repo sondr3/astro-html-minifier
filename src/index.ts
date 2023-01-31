@@ -18,7 +18,8 @@ interface ConvertedOptions {
   html: ConfigItem<RequiredHTMLOptions>;
 }
 
-export const createMinifierPlugin = (opts: Options = defaultOptions): AstroIntegration => {
+// eslint-disable-next-line import/no-default-export
+export default (opts: Options = defaultOptions): AstroIntegration => {
   const options = { ...defaultOptions, ...opts };
   const config: ConvertedOptions = {
     html: mergeOptions(options.html, defaultHTMLOptions),
@@ -36,6 +37,3 @@ export const createMinifierPlugin = (opts: Options = defaultOptions): AstroInteg
     },
   };
 };
-
-// eslint-disable-next-line import/no-default-export
-export default createMinifierPlugin;
