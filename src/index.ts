@@ -2,9 +2,14 @@ import { fileURLToPath } from "node:url";
 
 import type { AstroIntegration } from "astro";
 
-import { defaultHTMLOptions, HTMLOptions, minifyHTML, RequiredHTMLOptions } from "./html.js";
+import {
+  defaultHTMLOptions,
+  type HTMLOptions,
+  minifyHTML,
+  type RequiredHTMLOptions,
+} from "./html.js";
 import { Logger } from "./logger.js";
-import { ConfigItem, mergeOptions } from "./utils.js";
+import { type ConfigItem, mergeOptions } from "./utils.js";
 
 export interface Options {
   html: boolean | HTMLOptions;
