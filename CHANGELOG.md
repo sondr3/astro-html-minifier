@@ -1,3 +1,16 @@
+## 0.5.0
+
+> 2023-06-19
+
+## Summary
+
+No new functional changes, only dependency bumps.
+
+### Commits
+
+- [[`1719d23`](https://github.com/sondr3/astro-html-minifier)] 0.5.0
+- [[`b9f33f1`](https://github.com/sondr3/astro-html-minifier)] Bump dependencies
+
 ## v0.4.1
 
 > 2023-01-31

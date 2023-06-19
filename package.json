@@ -1,6 +1,6 @@
 {
   "name": "astro-html-minifier",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A HTML minifier for Astro",
   "type": "module",
   "main": "./dist/index.js",
