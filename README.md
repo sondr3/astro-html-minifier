@@ -8,6 +8,10 @@
     <b>A HTML minifier for Astro</b>
 </p>
 
+**DEPRECATED: You don't need this anymore!**
+
+Since [Astro 2.5](https://astro.build/blog/astro-250/#html-minification) HTML minification is built in.
+
 - **Simple**: Set it and forget it
 - **Performant**: Uses highly performant libraries to minify
 - **Optimal**: By minifying, the server can serve optimal bundles
