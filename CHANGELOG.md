@@ -1,3 +1,18 @@
+## v0.5.1
+
+> 2023-09-06
+
+## Summary
+
+Mark package as deprecated.
+
+### Commits
+
+- [[`d7dbd16`](https://github.com/sondr3/astro-html-minifier)] Mark package as deprecated
+- [[`049b3ad`](https://github.com/sondr3/astro-html-minifier)] Bump actions/checkout from 3 to 4
+- [[`c1b0f15`](https://github.com/sondr3/astro-html-minifier)] Bump pnpm/action-setup from 2.3.0 to 2.4.0
+- [[`270973e`](https://github.com/sondr3/astro-html-minifier)] Bump pnpm/action-setup from 2.2.4 to 2.3.0
+
 ## 0.5.0
 
 > 2023-06-19
